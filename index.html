@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Öncellikle oyun bilgisayara karşı oynanacak onun için Taş kağır ya da makas döndüren bir
+      // fonksiyon tanımlamalıyım.
+
+      function getComputerChoice() {
+        const choices = ["Rock", "Paper", "Scissors"];
+        const number = Number(Math.random());
+        const newNumber = Math.floor(number * 10); //7
+        if (newNumber % 3 === 0) {
+          return choices[0];
+        } else if (newNumber % 3 === 1) {
+          return choices[1];
+        } else {
+          return choices[2];
+        }
+      }
+      console.log(getComputerChoice());
+    </script>
+  </body>
+</html>
