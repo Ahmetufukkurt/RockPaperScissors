@@ -23,7 +23,54 @@
           return choices[2];
         }
       }
-      console.log(getComputerChoice());
+
+      function playRound(playerSelection, computerSelection) {
+        playerSelection = playerSelection.toLowerCase();
+        if (playerSelection === "Rock" && computerSelection === "Scissors") {
+          return "You Win! Rock beats Scissors";
+        } else if (
+          playerSelection === "Paper" &&
+          computerSelection === "Rock"
+        ) {
+          return "You Win! Paper beats Rock";
+        } else if (
+          playerSelection === "Scissors" &&
+          computerSelection === "Paper"
+        ) {
+          return "You Win! Scissors beats Paper";
+        } else if (playerSelection === computerSelection) {
+          return "Draw";
+        } else {
+          return "You Lose";
+        }
+      }
+
+      function game() {
+        let playerScore = 0;
+        let computerScore = 0;
+        for (let i = 0; i < 5; i++) {
+          const playerSelection = prompt(
+            "Please choose one Rock Paper Scissors"
+          );
+          const computerSelection = getComputerChoice();
+          const result = playRound(playerSelection, computerSelection);
+          if (result.startsWith("You Win")) {
+            playerScore++;
+          } else if (result.startsWith("You Lose")) {
+            computerScore++;
+          }
+          console.log(result);
+        }
+        if (playerScore > computerScore) {
+          return "You win";
+        } else if (playerScore < computerScore) {
+          return "You Lose";
+        } else {
+          return "Draw";
+        }
+      }
+
+      console.log(game());
     </script>
   </body>
 </html>
